@@ -140,16 +140,16 @@ Distributed under the MIT license. See `LICENSE` for more information.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 <!-- GITHUB STATS  -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/byEnok/Meal-Bank/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/byEnok/Meal-Bank.svg?style=for-the-badge
-[forks-url]: https://github.com/byEnok/Meal-Bank/network/members
-[stars-shield]: https://img.shields.io/github/stars/byEnok/Meal-Bank.svg?style=for-the-badge
-[stars-url]: https://github.com/byEnok/Meal-Bank/stargazers
-[issues-shield]: https://img.shields.io/github/issues/byEnok/Meal-Bank.svg?style=for-the-badge
-[issues-url]: https://github.com/byEnok/Meal-Bank/issues
-[license-shield]: https://img.shields.io/github/license/byEnok/Meal-Bank.svg?style=for-the-badge&color=708090
-[license-url]: https://github.com/byEnok/Meal-Bank/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/byEnok/Space-Vault.svg?style=for-the-badge
+[contributors-url]: https://github.com/byEnok/Space-Vault/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/byEnok/Space-Vault.svg?style=for-the-badge
+[forks-url]: https://github.com/byEnok/Space-Vault/network/members
+[stars-shield]: https://img.shields.io/github/stars/byEnok/Space-Vault.svg?style=for-the-badge
+[stars-url]: https://github.com/byEnok/Space-Vault/stargazers
+[issues-shield]: https://img.shields.io/github/issues/byEnok/Space-Vault.svg?style=for-the-badge
+[issues-url]: https://github.com/byEnok/Space-Vault/issues
+[license-shield]: https://img.shields.io/github/license/byEnok/Space-Vault.svg?style=for-the-badge&color=708090
+[license-url]: https://github.com/byEnok/Space-Vault/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=06B
 [linkedin-url]: https://www.linkedin.com/in/simon-enoksen-75649b241/
 
