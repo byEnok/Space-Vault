@@ -5,8 +5,11 @@ function Navbar() {
   return (
     <div className='flex items-center border-b-2 border-buttonBorder px-2 w-full'>
       <div className='flex justify-evenly items-center text-4xl w-full py-2 '>
-        <Link href='#' className='hover:text-textHover'>
+        <Link href='/' className='hover:text-textHover'>
           Home
+        </Link>
+        <Link href='/Submit' className='hover:text-textHover'>
+          Submit Image
         </Link>
         <Link href='#' className='hover:text-textHover'>
           About

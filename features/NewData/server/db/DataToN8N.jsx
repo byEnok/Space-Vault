@@ -3,8 +3,20 @@
 export const handleSubmission = async (e) => {
   const url = e.get('url')
   const category = e.get('category')
-  const tags = e.get('tags')
-  const special_tags = e.get('special-tags')
+  const tagsInput = String(e.get('tags'))
+  const specialTagsInput = String(e.get('special-tags'))
+
+  //TODO -  Remove this when changing form input to multiselect or tag picker.
+  const arrayTags = tagsInput
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 1)
+
+  const arraySpecialTags = specialTagsInput
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 1)
+
   // console.log(url, categories)
 
   try {
@@ -13,8 +25,8 @@ export const handleSubmission = async (e) => {
       body: JSON.stringify({
         url,
         category,
-        tags,
-        special_tags,
+        arrayTags,
+        arraySpecialTags,
       }),
     })
   } catch (e) {

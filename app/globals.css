@@ -2,19 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  background-image: var(--background);
-  outline: none;
-  background: var(--background);
-  color: var(--textColor);
-} */
-
 @layer base {
   :root {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 
     /* BLACK & WHITE */
 
@@ -87,7 +77,7 @@
   /* -------------------------------- START OF DARK MODE ---------------------------------- */
 
   .dark {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 
     --background-opposite: hsl(50 0% 90%);
     /* --background: hsl(0, 0%, 15%); */

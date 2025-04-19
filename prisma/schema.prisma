@@ -1,22 +1,26 @@
 generator client {
   provider = "prisma-client-js"
+  // For later prisma generatings - Prisma 7+
+  // output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model reddit_posts {
-  id           BigInt   @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   title        String?
   image_src    String?
   image_alt    String?
   category     String?
-  created_at   DateTime @default(now()) @db.Timestamptz(6)
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
   flair        String?
-  tags         String?
-  special_tags String?
+  tags         String[]
+  special_tags String[]
+  reddit_url   String
 }
