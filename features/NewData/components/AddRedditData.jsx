@@ -6,7 +6,7 @@ function Search() {
   return (
     <div className='flex flex-col'>
       {/* PAGE TITLE */}
-      <h1 className='text-5xl md:text-7xl text-center py-12'>Space Vault</h1>
+      <h1 className='text-2xl md:text-5xl text-center py-12'>Space Vault</h1>
 
       <form action={handleSubmission} className='flex flex-col gap-4 text-2xl'>
         {/* REDDIT URL INPUT */}

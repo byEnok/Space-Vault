@@ -7,8 +7,14 @@ function page() {
   return (
     <div className=''>
       <Navbar />
-      <Search />
-      {/* <ImageTags /> */}
+      <div className='flex '>
+        <div className='w-1/2'>
+          <Search />
+        </div>
+        <div className='w-1/2'>
+          <ImageTags />
+        </div>
+      </div>
     </div>
   )
 }

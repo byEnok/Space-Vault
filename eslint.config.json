@@ -1,5 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"],
+  "extends": ["next/core-web-vitals", "plugin:@tanstack/query/recommended", "prettier"],
+  "plugins": ["@tanstack/query"],
   "rules": {
     "prettier/prettier": "error",
     "max-len": ["warn", { "code": 230 }],
@@ -18,5 +19,3 @@
     "require-await": ["warn"]
   }
 }
-
-

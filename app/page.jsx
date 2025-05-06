@@ -1,5 +1,8 @@
 import LandingPageImages from '@/features/NewData/components/LandingPageImages'
 import Navbar from '@/globalComponents/core/Navbar'
+import { Suspense } from 'react'
+import Loading from './Loading'
+import Categories from '@/globalComponents/core/Categories'
 
 export default function Page() {
   return (
@@ -10,7 +13,15 @@ export default function Page() {
           <h1 className='text-4xl'>Welcome To Space Vault</h1>
           <h2 className='text-xl'>Explore stunning and mind-blowing imagery from the depths of our galaxy.</h2>
         </div>
-        <LandingPageImages />
+
+        {/* Categories */}
+        <Categories />
+
+        {/* Images From DB */}
+        <Suspense fallback={<Loading />}>
+          <LandingPageImages />
+        </Suspense>
+        {/* <Loading>HELLO </Loading> */}
       </div>
     </div>
   )

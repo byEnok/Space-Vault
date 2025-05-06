@@ -14,11 +14,11 @@ function Navbar() {
         <Link href='#' className='hover:text-textHover'>
           About
         </Link>
-        <Link href='#' className='hover:text-textHover'>
+        {/* <Link href='#' className='hover:text-textHover'>
           <span className='material-symbols-outlined text-4xl'>login</span>
-        </Link>
+        </Link> */}
       </div>
-      <ModeToggle />
+      {/* <ModeToggle /> */}
     </div>
   )
 }

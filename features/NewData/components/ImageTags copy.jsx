@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ImageTags() {
-  const options = ['Celestial Bodies', 'Deep Space', 'Phenomena', 'Space Missions and Technology']
+  const options = ['Celestial Bodies', 'Deep Space', 'Phenomena', 'Space Missions and Technology', 'What If?']
 
   // TODO - If options is === deepSpace or something else. Then the next subcategory option will show the corresponding selection.
 
@@ -33,11 +33,21 @@ function ImageTags() {
     other: ['Astronauts / Cosmonauts', 'Space Stations (ISS)'],
   }
 
+  // Imaginarium
+  //  Beyond the Known
+  const whatIf = {
+    celestialBodies,
+    deepSpace,
+    phenomena,
+    spaceMissions,
+  }
+
   const categories = {
     celestialBodies,
     deepSpace,
     phenomena,
     spaceMissions,
+    whatIf,
   }
 
   return (
