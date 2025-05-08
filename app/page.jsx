@@ -10,17 +10,17 @@ export default function Page() {
       <Navbar />
       <div className='flex flex-col items-center gap-12'>
         <div className='flex flex-col gap-3 pt-5 text-center'>
-          <h1 className='text-4xl'>Welcome To Space Vault</h1>
-          <h2 className='text-xl'>Explore stunning and mind-blowing imagery from the depths of our galaxy.</h2>
+          <h1 className='text-4xl'>Welcome To ....</h1>
+          {/* <h2 className='text-xl'>Explore stunning and mind-blowing imagery from the depths of our galaxy.</h2> */}
         </div>
 
         {/* Categories */}
-        <Categories />
+        {/* <Categories /> */}
 
         {/* Images From DB */}
-        <Suspense fallback={<Loading />}>
-          <LandingPageImages />
-        </Suspense>
+        {/* <Suspense fallback={<Loading />}> */}
+        <LandingPageImages />
+        {/* </Suspense> */}
         {/* <Loading>HELLO </Loading> */}
       </div>
     </div>

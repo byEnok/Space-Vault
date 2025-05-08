@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 function ImageTags() {
   const [currentCategory, setCurrentCategory] = useState('Celestial Bodies')
-  const categories = ['Celestial Bodies', 'Deep Space', 'Phenomena', 'Space Missions and Tech', 'What If?']
+  const categories = ['Celestial Bodies', 'Deep Space', 'Phenomena', 'Space Missions & Tech', 'Imaginarium']
 
   // TODO - If options is === deepSpace or something else. Then the next subcategory option will show the corresponding selection.
 
@@ -34,24 +34,36 @@ function ImageTags() {
       Rovers: ['Curiosity', 'Perseverance', 'Opportunity', 'Spirit'],
       Other: ['Astronauts / Cosmonauts', 'Space Stations (ISS)'],
     },
+
+    Imaginarium: {
+      Planets: ['Earth', 'Moon', 'Mars', 'Jupiter', 'Saturn', 'Venus', 'Mercury', 'Uranus', 'Neptune'],
+      'Dwarf Planets': ['Pluto', 'Ceres', 'Eris', 'Haumea', 'Makemake'],
+      Stars: ['Sun', 'Red Giants', 'White Dwarfs', 'Neutron Stars', 'Supernovae'],
+      Eclipses: ['Solar', 'Lunar'],
+      'Meteor Showers': ['Perseids', 'Leonids', 'Geminids', 'Quadrantids'],
+      Comets: ['Halley’s Comet', 'Comet NEOWISE', 'Comet Hale-Bopp'],
+      Other: ['Asteroids'],
+    },
   }
 
-  // Imaginarium
   //  Beyond the Known
-
   //  TODO - Fix options not showing under 'What If?' !!!
-  tags['what If?'] = {
-    'Celestial Bodies': tags['Celestial Bodies'],
-    'Deep Space': tags['Deep Space'],
-    Phenomena: tags.Phenomena,
-    'Space Missions & Tech': tags['Space Missions & Tech'],
-  }
+  // tags['what If'] = {
+  // tags['Imaginarium'] = {
+  //   'Celestial Bodies': tags['Celestial Bodies'],
+  //   'Deep Space': tags['Deep Space'],
+  //   Phenomena: tags['Phenomena'],
+  //   'Space Missions & Tech': tags['Space Missions & Tech'],
+  // }
 
+  // console.log(tags)
+
+  // / tags
   // const categories = [tags.celestialBodies, tags.deepSpace, tags.phenomena, tags.spaceMissions]
 
   return (
     <>
-      <h1 className='text-center py-12 text-5xl  text-white'>{currentCategory}</h1>
+      <h1 className='text-center py-12 text-5xl text-white'>{currentCategory}</h1>
 
       {/* Use library to show option selection. First for Main tag then for subcategory. */}
       <div></div>
