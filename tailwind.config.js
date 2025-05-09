@@ -27,6 +27,7 @@ export const theme = {
       accentTwo: 'var(--accentTwo)',
       border: 'var(--accentTwo)',
       focusColor: 'var(--border-focus)',
+      buttonHover: 'var(--buttonHover)',
       // buttonBorder: 'var(--accentTwo)',
       // MAIN PROJECT COLORS
 
