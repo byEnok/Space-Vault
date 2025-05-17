@@ -8,13 +8,13 @@
       all 0.2s ease fade-,
       color 0.2s ease;
   } */
+    /* transition: color 0.5s; */
+    background-color: var(--background);
+    /* color: var(--textColor); */
+    color: #c0c5ce;
     opacity: 0;
     animation: fadeIn 2s forwards;
-  }
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
+    /* transition: 0.3s; */
   }
 
   :root {
@@ -92,54 +92,34 @@
 
   .dark {
     /* box-sizing: border-box; */
+    --background: rgb(26, 27, 38);
+    /* --background-darker: #414361; */
+    --background-darker: #2d2f44;
 
-    --background-opposite: hsl(50 0% 90%);
-    /* --background: hsl(0, 0%, 15%); */
-    --background: hsl(249, 11%, 12%);
-    --background-darker: hsl(0, 0%, 5%);
-    --primary: hsl(60, 1%, 35%);
-    --accentOne: hsl(0, 0%, 20%);
+    /* --primary: rgb(90, 90, 88); */
+    /* --accentOne: rgb(51, 51, 51); */
     /* --accentOne: hsl(30, 2%, 54%); */
-    --accentTwo: hsl(36, 4%, 74%);
-    /* BLACK AND WHITE/GREY */
-
-    --border-focus: hsl(49, 83%, 42%);
+    /* --accentTwo: rgb(191, 189, 186); */
 
     /* text color */
-    --textColor: hsl(0 0% 80%);
-    --textHover: hsl(0, 0%, 100%);
+    --textColor: rgb(157, 164, 199);
+    --titleColor: rgb(193, 202, 244);
+    /* --textHover: rgb(255, 255, 255); */
+    --bannerName: #666698;
 
-    /* Button */
+    /* Original Astro */
+    /* --hover: #bb9af7; */
+    /* Original Darker */
+    /* --hover: #7963a0; */
+    /* Original Ligher */
+    --hover: #8973b9;
     --buttonHover: hsl(217, 49%, 18%);
+    /* --border-focus: rgb(196, 163, 18); */
+    --adobeDefault1: #606482;
+    --adobeDefault2: #4c59b9;
+    --adobeDefault3: #676799;
 
     /* Project Color themes */
-    /* Cotton Candy color theme
-    /* --theme-dark-green-blue: #4b899b;
-    --theme-blurple-solid: #4A5DD9;
-    --theme-blue-blue: #4A8AD9;
-    --theme-green-blue: #4AD9CC;
-    --theme-purple: #644AD9;
-    --theme-light-blue: #92B2D9;
-    --nice-light-gray: hsl(0, 0%, 65%);
-    --login-button-v2: rgb(100,74,217); */
-    /* New colors for project */ /* --accentOne:  #3b0233;  */ /* --darkBg:     #2e313d; */ /* --strongBlue:   #6a99f1;  */ /* --mildBlue:   #97b7f2;  */ /* --accentTwo:   #a48156;  */ /* 1 */ /* BLUE AND GOLD */
-    /* --background: #2e313d;
-    --background-darker: #2c2f33;
-    --primary:   #6a99f1; 
-    --secondary:   #97b7f2; 
-    --accentOne:  #3b0233; 
-    --accentTwo:   #a48156;  */ /* 2 */ /* BLUE ALL AROUND */
-    /* --background: #3e4859;
-    --background-darker: #2c2f33;
-    --primary:   #2b68d9; 
-    --secondary:   #465c84; 
-    --accentOne:   #6a99f1; 
-    --accentTwo:   #6a99f1;  */ /* --primary:   #6a99f1;  */ /* --accentOne:  #2b68d9;  */ /* --accentTwo:  #2b68d9;  */
-    /* --accentTwo:   #272b33;  */ /* --accentTwo:   #465c84;  */ /* --background: #2e313d; */ /* PURPLE & BLUE */ /* --background: #3c4973;
-    --background-darker: #282c40;
-    --primary:   #6f92bf; 
-    --accentTwo:  #4946a6; 
-    --accentOne:   #8a7ed9;  */
     /* Project Color themes */ /* --------------------------- */ /* Border colors */ /* --buttonBorder: #2b68d9; */ /* --buttonBorder: #272b33; */ /* --border: hsl(180 35% 15%); */ /* input is togglemode border color */
     --input: hsl(80 20% 15%);
 
@@ -194,6 +174,11 @@
     color: black;
     padding: 3px;
   }
+
+  color {
+    transition: color 0.4s ease-in-out;
+  }
+
   button {
     display: flex;
     /* justify-content: center; */
@@ -207,6 +192,7 @@
   }
 
   button:hover {
+    transition: color 0.4s ease-in-out;
     /* background-color: gray; */
   }
 
@@ -221,65 +207,5 @@
     justify-content: center;
     /* width: var(--uib-size); */
     /* height: var(--uib-size); */
-  }
-
-  .newtons-cradle__dot {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 25%;
-    transform-origin: center top;
-  }
-
-  .newtons-cradle__dot::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 25%;
-    border-radius: 50%;
-    background-color: var(--uib-color);
-  }
-
-  .newtons-cradle__dot:first-child {
-    animation: swing var(--uib-speed) linear infinite;
-  }
-
-  .newtons-cradle__dot:last-child {
-    animation: swing2 var(--uib-speed) linear infinite;
-  }
-
-  @keyframes swing {
-    0% {
-      transform: rotate(0deg);
-      animation-timing-function: ease-out;
-    }
-
-    25% {
-      transform: rotate(70deg);
-      animation-timing-function: ease-in;
-    }
-
-    50% {
-      transform: rotate(0deg);
-      animation-timing-function: linear;
-    }
-  }
-
-  @keyframes swing2 {
-    0% {
-      transform: rotate(0deg);
-      animation-timing-function: linear;
-    }
-
-    50% {
-      transform: rotate(0deg);
-      animation-timing-function: ease-out;
-    }
-
-    75% {
-      transform: rotate(-70deg);
-      animation-timing-function: ease-in;
-    }
   }
 }

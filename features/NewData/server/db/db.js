@@ -4,7 +4,8 @@ import prisma from '@/lib/prismaClient'
 //  Is called from API endpoint 'images/' to get data from DB
 export async function GetAllImages(filters) {
   try {
-    const { category, tags, specialTags } = filters ?? {}
+    const { category, tags, specialTags } = (await filters) ?? {}
+
     console.log('db.js CATEGORY: ', category)
     // console.log('db.js: ', filters)
     const where = {}
@@ -17,8 +18,8 @@ export async function GetAllImages(filters) {
     const images = await prisma.reddit_posts.findMany({ where })
     return images
   } catch (e) {
-    console.error(e)
-    console.error('Couldnt Fetch Images!')
+    // console.error(e)
+    console.error('Server Couldnt Fetch Images!', e)
     // throw new Error('Couldnt fetch Images!')
   }
 }

@@ -3,32 +3,33 @@ export const content = ['./globalComponents/**/*.{js,ts,jsx,tsx,mdx}', './app/**
 export const darkMode = ['class']
 export const theme = {
   extend: {
-    boxshadow: {
-      custom: '6.5px 13px 13px hsl(0deg 0% 0% / 0.3)',
+    boxShadow: {
+      custom1: '6.5px 13px 13px hsl(0deg 0% 0% / 0.3)',
+      custom2: '0px 0px 34px -5px rgba(201, 201, 201, 0.88)',
     },
+    shadow: {},
     fontFamily: {
       sans: ['var(--roboto)'],
       lobster: ['var(--lobster)'],
     },
     colors: {
-      /* Old grey and black colors palette */
-      darkGrey: 'var(--dark-grey)',
-      lightGrey: 'var(--light-grey)',
-      niceLightGray: 'var(--nice-light-gray)',
-
       // MAIN PROJECT COLORS
-      opposite: 'var(--background-opposite)',
       background: 'var(--background)',
+      text: 'var(--textColor)',
+      title: 'var(--titleColor)',
+      bannerName: 'var(--bannerName)',
+      hover: 'var(--hover)',
+      // opposite: 'var(--background-opposite)',
       backgroundDarker: 'var(--background-darker)',
-      // backgroundDarker: 'var(--background-cream)',
-      backgroundLighter: 'var(--background-lighter)',
-      primary: 'var(--primary)',
-      accentOne: 'var(--accentOne)',
-      accentTwo: 'var(--accentTwo)',
-      border: 'var(--accentTwo)',
-      focusColor: 'var(--border-focus)',
+      // primary: 'var(--primary)',
+      // accentOne: 'var(--accentOne)',
+      // accentTwo: 'var(--accentTwo)',
+      // border: 'var(--accentTwo)',
+      // focusColor: 'var(--border-focus)',
       buttonHover: 'var(--buttonHover)',
-      // buttonBorder: 'var(--accentTwo)',
+      adobe1: 'var(--adobeDefault1)',
+      adobe2: 'var(--adobeDefault2)',
+      adobe3: 'var(--adobeDefault3)',
       // MAIN PROJECT COLORS
 
       // input is ToggleMode border color

@@ -5,10 +5,10 @@ export default function Categories() {
 
   return (
     <>
-      <main className='flex w-full justify-evenly'>
+      <main className='flex w-full justify-evenly '>
         {allCategories.map((category, index) => (
           // <Link href={`?${new URLSearchParams({ category })}`} key={index} className='border p-2 border-border text-2xl font-bold'>
-          <Link href={`?${new URLSearchParams({ path: '/', query: category })}`} key={index} className='border p-2 border-border text-2xl font-bold'>
+          <Link href={`?${new URLSearchParams({ path: '/', query: category })}`} key={index} className='text-title hover:text-hover rounded-md border p-2 text-2xl font-bold'>
             {category}
           </Link>
         ))}

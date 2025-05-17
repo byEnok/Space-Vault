@@ -4,7 +4,8 @@ import { GetAllImages } from '@/features/NewData/server/db/db'
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
   // const searchParams = req.nextUrl.searchParams
-  const query = req.url.searchParams
+  // const query = req.url.searchParams
+  const query = searchParams.get('category')
   const category = searchParams.get('category')
   // const category = searchParams.category
   const tags = searchParams.getAll('tags')
@@ -23,7 +24,7 @@ export async function GET(req) {
     return NextResponse.json(images)
   } catch (e) {
     console.error(e)
-    return NextResponse.json('Couldnt fetch Images!')
+    return NextResponse('Route couldnt fetch Images!')
   }
 }
 // original functional
