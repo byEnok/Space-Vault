@@ -9,7 +9,7 @@ function Navbar() {
           Home
         </Link>
         <Link href='/Submit' className=' transition-colors duration-500 ease-in-out hover:text-hover'>
-          Submit Image
+          Submit
         </Link>
         <Link href='#' className='transition-colors duration-500 ease-in-out  hover:text-hover'>
           About

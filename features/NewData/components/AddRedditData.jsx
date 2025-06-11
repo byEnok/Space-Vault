@@ -6,7 +6,7 @@ function Search() {
   return (
     <div className='flex flex-col'>
       {/* PAGE TITLE */}
-      <h1 className='text-2xl md:text-5xl text-center py-12'>Space Vault</h1>
+      <h1 className='text-2xl md:text-5xl text-center py-12'>Reddit Link to n8n</h1>
 
       <form action={handleSubmission} className='flex flex-col gap-4 text-2xl'>
         {/* REDDIT URL INPUT */}
@@ -29,8 +29,8 @@ function Search() {
 
         {/*  SPECIAL TAG INPUT */}
         <div className='flex flex-col items-center'>
-          <label htmlFor='special-tags'>Special-Tags</label>
-          <input type='text' name='special-tags' placeholder='e.g Coronal Hole' defaultValue='Coronal Hole' className='text-lg md:text-xl text-center w-2/3 md:w-1/3' required />
+          <label htmlFor='title'>Title</label>
+          <input type='text' name='title' placeholder='e.g Coronal Hole' defaultValue='Coronal Hole' className='text-lg md:text-xl text-center w-2/3 md:w-1/3' required />
         </div>
 
         <div className='flex justify-center '>

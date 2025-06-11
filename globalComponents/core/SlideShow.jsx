@@ -1,38 +1,36 @@
+'use client'
 //  Shadcn Components
 import { Card, CardContent } from '@/globalComponents/shadcn/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/globalComponents/shadcn/carousel'
 import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
+import { useState, useEffect } from 'react'
 // IMAGES
-// import PillarsOfCreation from '@/app/assets/images/DeepSpace/pillars_of_creation_NASA.jpg'
-// import AndromedaGalaxy from '@/app/assets/images/DeepSpace/andromeda_galaxy_NASA.jpg'
-// import MissionsTech from '@/app/assets/images/MissionTech/missions_tech.jpg'
-// import MissionsTech2 from '@/app/assets/images/MissionTech/missions_tech2.jpg'
-// import MissionsTech2Opti from '@/app/assets/images/MissionTech/optimized/missions_tech2.webp'
-// import Saturn from '@/app/assets/images/CelestialBodies/saturn_NASA.jpg'
-// import Saturn2 from '@/app/assets/images/CelestialBodies/saturn_reddit.webp'
-// import AuroraPurple from '@/app/assets/images/Phenomena/aurora_NASA.jpg'
-// import AuroraGreen from '@/app/assets/images/Phenomena/aurora_reddit.jpg'
-
-import BlackHole from '@/app/assets/images/Imaginarium/black-hole-concept/black_hole_concept.png'
-import SaturnClean from '@/app/assets/saturn-flickr.jpg'
-import Aurora from '@/app/assets/clouds-aurora-3K.jpg'
-import EarthSunrise from '@/app/assets/earth-sunrise-3K.jpg'
-import Exoplanet from '@/app/assets/exoplanet-3K.jpg'
-import Galaxy from '@/app/assets/galaxy.jpg'
+import Aurora from '@/app/assets/Banners/clouds-aurora-3K.jpg'
+import EarthSunrise from '@/app/assets/Banners/earth-sunrise-3K.jpg'
+import Galaxy from '@/app/assets/Banners/galaxy.jpg'
+import Exoplanet from '@/app/assets/Banners/exoplanet-3K.jpg'
+import SaturnClean from '@/app/assets/Banners/saturn-flickr.jpg'
+import BlackHole from '@/app/assets/Banners/black_hole_concept.png'
 
 function SlideShow() {
-  const auroraAlt = 'Clouds swirl over the Gulf of Alaska and underneath the aurora borealis'
+  const [imageFullscreen, setImageFullscreen] = useState()
+
+  const [mounted, setMounted] = useState(false)
+
+  // const auroraAlt = `Clouds swirl over the Gulf of Alaska beneath the aurora borealis blanketing Earth's horizon, as seen from the International Space Station`
+  const auroraAlt = `Clouds swirl over the Gulf of Alaska and underneath the aurora borealis`
   const auroraLink = 'https://www.flickr.com/photos/nasa2explore/54416758948/'
 
+  // const earthSunriseAlt = `Sunrise above Earth's horizon begins to illuminate a cloudy Indian Ocean, revealing the terminator — the dividing line between night and day`
   const earthSunriseAlt = `Sunrise above Earth's horizon begins illuminating a cloudy Indian Ocean`
   const earthSunriseLink = 'https://www.flickr.com/photos/nasa2explore/54415646842/'
 
-  const exoplanetAlt = 'Webb Discovers Methane, Carbon Dioxide in Atmosphere of Exoplanet K2-18 b (Artist Illustration)'
-  const exoplanetLink = 'https://www.flickr.com/photos/nasawebbtelescope/53179463277/'
-
   const galaxyAlt = 'Hubble Spies a Spectacular Starburst Galaxy'
   const galaxyLink = 'https://www.flickr.com/photos/nasahubble/54380398810/'
+
+  const exoplanetAlt = 'Webb Discovers Methane, Carbon Dioxide in Atmosphere of Exoplanet K2-18 b (Artist Illustration)'
+  const exoplanetLink = 'https://www.flickr.com/photos/nasawebbtelescope/53179463277/'
 
   const saturnCleanAlt = `Saturn's Rings Shine in Webb's Observations of Ringed Planet`
   const saturnCleanLink = 'https://www.flickr.com/photos/nasawebbtelescope/53013132440/'
@@ -44,11 +42,28 @@ function SlideShow() {
   const images = [
     { src: Aurora, alt: auroraAlt, link: auroraLink },
     { src: EarthSunrise, alt: earthSunriseAlt, link: earthSunriseLink },
-    { src: Exoplanet, alt: exoplanetAlt, link: exoplanetLink },
     { src: Galaxy, alt: galaxyAlt, link: galaxyLink },
+    // { src: Exoplanet, alt: exoplanetAlt, link: exoplanetLink },
     { src: SaturnClean, alt: saturnCleanAlt, link: saturnCleanLink },
     { src: BlackHole, alt: blackHoleAlt, link: blackHoleLink },
   ]
+
+  function BannerImageInfo(image, alt) {
+    setImageFullscreen((prev) => ({ ...prev, image, alt }))
+  }
+
+  useEffect(() => {
+    if (!typeof window === undefined) setMounted(true)
+
+    const handleEscKey = (e) => {
+      if (e.key === 'Escape') setImageFullscreen(null)
+    }
+    window.addEventListener('keydown', handleEscKey)
+    return () => {
+      window.removeEventListener('keydown', handleEscKey)
+    }
+  }, [])
+
   return (
     <div className='w-5/6 rounded-md shadow-custom2 '>
       <Carousel className='w-full'>
@@ -58,8 +73,10 @@ function SlideShow() {
               {/* <div className=' relative w-full aspect-[3/2] h-[460px]'> */}
               {/* <div className=' relative w-full h-[460px]'> */}
               {/* <div className='relative w-full aspect-[16/9] h-[450px]'> */}
-              <div className='relative w-full aspect-auto h-[650px]'>
-                <p className='absolute bottom-0 right-0 text-xs z-10 bg-gray-900 p-1 bg-opacity-70 rounded-md '>{image.alt}</p>
+              <div className='relative w-full aspect-auto h-[250px] sm:h-[350px] md:h-[550px] cursor-zoom-in select-none' onClick={() => BannerImageInfo(image.src, image.alt)}>
+                <div className='absolute bg-gray-900 bg-opacity-70  bottom-0 right-0 z-10 rounded-md'>
+                  <p className='text-xs w-full'>{image.alt}</p>
+                </div>
                 <Image
                   // key={index}
                   priority={true}
@@ -86,9 +103,14 @@ function SlideShow() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className='' />
-        <CarouselNext />
+        <CarouselPrevious className='absolute top-1/2 left-2 transition-all duration-300 ease-in-out border-0 opacity-45 hover:opacity-100' />
+        <CarouselNext className='absolute top-1/2 right-2 transition-all duration-300 ease-in-out border-0 opacity-45  hover:opacity-100' />
       </Carousel>
+      {imageFullscreen && (
+        <div className='z-50 fixed inset-0 bg-opacity-80 backdrop-blur-sm flex justify-center  cursor-zoom-out aspect-auto' onClick={() => setImageFullscreen(null)}>
+          <Image className='object-cover' fill={true} sizes='90vw' src={imageFullscreen.image} alt={imageFullscreen.alt} quality={100} />
+        </div>
+      )}
     </div>
   )
 }

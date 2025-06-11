@@ -92,7 +92,7 @@
 
   .dark {
     /* box-sizing: border-box; */
-    --background: rgb(26, 27, 38);
+    --background: #1a1b26;
     /* --background-darker: #414361; */
     --background-darker: #2d2f44;
 

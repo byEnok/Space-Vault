@@ -2,6 +2,7 @@ import './globals.css'
 import './icons.css'
 import './css/Loading.css'
 import './css/App.css'
+import './css/TwinkleStarsBG.css'
 // import './css/radix.css'
 
 import { ThemeProvider } from '@/globalComponents/services/Theme-Provider'

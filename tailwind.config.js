@@ -5,7 +5,9 @@ export const theme = {
   extend: {
     boxShadow: {
       custom1: '6.5px 13px 13px hsl(0deg 0% 0% / 0.3)',
-      custom2: '0px 0px 34px -5px rgba(201, 201, 201, 0.88)',
+      customBrightWhite: '0px 0px 34px -5px rgba(201, 201, 201, 0.88)',
+      customSublteDark: '0px 0px 16px -4px rgba(240, 240, 255, 0.5)',
+      customSublteDarkExtra: '0px 0px 8px -2px rgba(240, 240, 255, 0.25)',
     },
     shadow: {},
     fontFamily: {
