@@ -8,6 +8,8 @@ const nextConfig = {
     return config
   },
   images: {
+    loader: 'custom',
+    loaderFile: './loader.js',
     remotePatterns: [
       {
         protocol: 'https',
