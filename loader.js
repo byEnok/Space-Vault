@@ -18,13 +18,14 @@ export default function myImageLoader({ src, width, quality }) {
     return src
   }
   if (isLocal) {
+    return src
     // Original Code From Developer
-    return `${imageOptimizationApi}/image/${fullSrc}?${query.toString()}`
+    // return `${imageOptimizationApi}/image/${fullSrc}?${query.toString()}`
     // ChatGPT Tip for Encoding:
     // return `${imageOptimizationApi}/image/${encodeURIComponent(fullSrc)}?${query.toString()}`
   }
   // Original Code From Developer
-  return `${imageOptimizationApi}/image/${src}?${query.toString()}`
+  // return `${imageOptimizationApi}/image/${src}?${query.toString()}`
   // ChatGPT Tip for Encoding:
-  // return `${imageOptimizationApi}/image/${encodeURIComponent(src)}?${query.toString()}`;
+  return `${imageOptimizationApi}/image/${encodeURIComponent(src)}?${query.toString()}`
 }
