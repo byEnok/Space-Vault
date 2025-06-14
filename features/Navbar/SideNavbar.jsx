@@ -5,8 +5,8 @@ import { DotLottieReact, DotLottie } from '@lottiefiles/dotlottie-react'
 import { useState, useEffect, useRef } from 'react'
 import { cn } from '@/lib/utils'
 import NavCard from './NavCard'
-import SidebarLeft from '@/public/NavbarIcons/Sidebar/sidebarLeft.svg'
-import SidebarRight from '@/public/NavbarIcons/Sidebar/sidebarRight.svg'
+import SidebarClose from '@/public/NavbarIcons/Sidebar/sidebarLeft.svg'
+import SidebarOpen from '@/public/NavbarIcons/Sidebar/sidebarRight.svg'
 
 function SideNavbar() {
   const [sideBarVisible, setSideBarVisible] = useState(false)
@@ -15,17 +15,20 @@ function SideNavbar() {
   const [aboutHover, setAboutHover] = useState()
   const [submitHover, setSubmitHover] = useState()
 
-  // Sidebar Icon Toggle
-  const iconWidth = 32
-  const iconHeight = 32
+  // SIDEBAR ICON SIZE
+  // const iconWidth = 32
+  const iconWidth = 42
+  // const iconHeight = 32
+  const iconHeight = 42
+
+  // LOTTIE ANIMATION SIZES
+  const lottieWidthMd = 14
+  const lottieHeightMd = 14
 
   const homeStatic = '/NavbarIcons/Home/earthStaticWithBG.jpg'
   const submitStatic = '/NavbarIcons/Submit/rocketStaticWithBG.jpg'
   const aboutStatic = '/NavbarIcons/About/astronautStaticWithBG.jpg'
   const staticImageSize = 56
-
-  const lottieWidthMd = 14
-  const lottieHeightMd = 14
 
   function ActivateAnimation(iconName) {
     // console.log('ON')
@@ -73,29 +76,30 @@ function SideNavbar() {
     setAboutHover(false)
     setSubmitHover(false)
   }, [])
+
   return (
-    <>
-      <div className={cn('flex flex-col justify-evenly items-center h-full w-full z-50 transition-all duration-500 ease-in-out bg-background rounded-md bg-opacity-100 mt-5 opacity-100 translate-x-0', { 'bg-opacity-0 h-fit': !sideBarVisible })}>
-        {/* <div
-          className={cn('flex h-fit w-full py-3 justify-evenly items-center cursor-pointer rounded-md transition-all duration-500 ease-in-out hover:bg-background hover:translate-x-[0.05rem] hover:pl-2', { hidden: sideBarVisible })}
-          onClick={() => setSideBarVisible(true)}
-          > */}
-        <SidebarLeft
-          className={cn('flex h-fit w-full cursor-pointer text-gray-400 transition-all duration-500 ease-in-out rounded-md hover:bg-background hover:-translate-x-[0.1rem]', { 'hidden opacity-0 -translate-x-5': !sideBarVisible })}
-          onClick={() => setSideBarVisible(false)}
-          fill='currentColor'
-          width={iconWidth}
-          height={iconHeight}
-        />
-        <SidebarRight
-          className={cn('flex h-fit w-full cursor-pointer text-gray-400 transition-all duration-500 ease-in-out rounded-md hover:bg-background hover:translate-x-[0.05rem] hover:pl-2', { 'hidden opacity-0 -translate-x-5': sideBarVisible })}
-          onClick={() => setSideBarVisible(true)}
-          fill='currentColor'
-          width={iconWidth}
-          height={iconHeight}
-        />
-        {/* </div> */}
-        <div className={cn('flex flex-col justify-evenly items-center h-full w-full transition-all duration-500 ease-in-out', { 'hidden opacity-0 -translate-x-5': !sideBarVisible })}>
+    <main className='fixed top-12 left-0'>
+      <div className={cn('flex flex-col justify-evenly items-center w-full z-50 transition-all duration-500 ease-in-out bg-background rounded-md bg-opacity-100 mt-5 opacity-100 translate-x-0', { 'bg-opacity-0 h-fit': !sideBarVisible, 'p-1': sideBarVisible })}>
+        {/* ------------------- NAVBAR ICON ------------------- */}
+        <div className='flex flex-grow-1'>
+          <SidebarClose
+            className={cn('flex h-fit w-full cursor-pointer text-gray-400 transition-all duration-500 ease-in-out rounded-md hover:bg-background hover:-translate-x-[0.1rem]', { 'hidden opacity-0 -translate-x-5': !sideBarVisible })}
+            onClick={() => setSideBarVisible(false)}
+            fill='currentColor'
+            width={iconWidth}
+            height={iconHeight}
+          />
+          <SidebarOpen
+            className={cn('flex h-fit w-full cursor-pointer text-gray-400 transition-all duration-500 ease-in-out rounded-md hover:bg-background hover:translate-x-[0.05rem] hover:pl-2', { 'hidden opacity-0 -translate-x-5 rotate-180': sideBarVisible })}
+            onClick={() => setSideBarVisible(true)}
+            fill='currentColor'
+            width={iconWidth}
+            height={iconHeight}
+          />
+        </div>
+
+        {/* <div className={cn('flex flex-col justify-evenly items-center h-fit w-full transition-all duration-500 ease-in-out', { 'hidden opacity-0 -translate-x-5': !sideBarVisible })}> */}
+        <div className={cn('flex flex-col justify-evenly items-center  w-full transition-all duration-500 ease-in-out', { 'h-0 hidden opacity-50': !sideBarVisible })}>
           {/*  ------------------- HOME ICON ------------------- */}
           <Link href='/' onMouseEnter={() => ActivateAnimation('Home')} onMouseLeave={() => DisableAnimation('Home')} className='relative transition-all duration-500 ease-in-out'>
             {/* Show gif with conditinoal on useState */}
@@ -132,7 +136,7 @@ function SideNavbar() {
             {/* {aboutHover && <DotLottieReact className={cn(`h-12 w-16 md:h-${lottieHeightMd} md:w-${lottieWidthMd} transition-transform duration-500 ease-in-out z-20`, {})} autoplay loop src='https://lottie.host/8c492f20-28e7-4724-9a84-2edad418995a/oMxTEzZI4t.lottie' />} */}
             <Image className={cn('object-cover md:w-14 md:h-14 z-30', { hidden: aboutHover })} src='/NavbarIcons/About/astronautStaticWithBG.jpg' width={staticImageSize} height={staticImageSize} alt='About Icon' />
 
-            {/* Shows animation after hover and stops animation off hover */}
+            {/* ------------------- Shows animation after hover and stops animation off hover ------------------- */}
             <DotLottieReact
               className={cn(`h-12 w-12 md:h-${lottieHeightMd} md:w-${lottieWidthMd} transition-transform duration-500 ease-in-out z-30`, { hidden: !aboutHover })}
               // autoplay={aboutHover ? true : false}
@@ -145,7 +149,7 @@ function SideNavbar() {
           {/* <ModeToggle /> */}
         </div>
       </div>
-    </>
+    </main>
   )
 }
 
