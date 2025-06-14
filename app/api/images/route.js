@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { GetAllImages } from '@/features/NewData/server/db/db'
+import { GetAllImages } from '@/features/db/db'
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
@@ -10,15 +10,15 @@ export async function GET(req) {
   // const category = searchParams.category
   const tags = searchParams.getAll('tags')
   // const tags = searchParams.tags
-  const specialTags = searchParams.getAll('getspecialTags')
-  // const specialTags = searchParams.specialTags
+  const title = searchParams.getAll('title')
+  // const title = searchParams.title
 
-  // console.log('route.js: ', tags, category, specialTags)
+  // console.log('route.js: ', tags, category, title)
   console.log('route.js QUERY: ', query)
   // console.log('QUERY URL: ', query.url)
 
   try {
-    const images = await GetAllImages({ category, tags: tags.length ? tags : undefined, specialTags: specialTags.length ? specialTags : undefined })
+    const images = await GetAllImages({ category, tags: tags.length ? tags : undefined, title: title.length ? title : undefined })
     // const images = await GetAllImages()
     // console.log('route.js file: ', allImages)
     return NextResponse.json(images)

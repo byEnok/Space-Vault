@@ -15,10 +15,18 @@ export default function myImageLoader({ src, width, quality }) {
   if (quality) query.set('quality', quality)
 
   if (isLocal && process.env.NODE_ENV === 'development') {
-    return src
+    // WORKS IN LOCAL & PROD - BUT GIVES CONSOLE WARNING IN LOCAL DEV
+    // return src
+
+    // AVOIDS CONSOLE WARNING FOR IMAGE NOT HAVING WIDHT PROPERTY
+    return `${src}?${query.toString()}`
   }
   if (isLocal) {
-    return src
+    // WORKS IN LOCAL & PROD - BUT GIVES CONSOLE WARNING IN LOCAL DEV
+    // return src
+    // AVOIDS CONSOLE WARNING FOR IMAGE NOT HAVING WIDHT PROPERTY
+    return `${src}?${query.toString()}`
+
     // Original Code From Developer
     // return `${imageOptimizationApi}/image/${fullSrc}?${query.toString()}`
     // ChatGPT Tip for Encoding:

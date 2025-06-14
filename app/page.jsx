@@ -1,11 +1,10 @@
-import LandingPageImages from '@/features/NewData/components/LandingPageImages'
-import Navbar from '@/globalComponents/core/Navbar'
+import LandingPageImages from '@/features/Home/LandingPageImages'
+import Navbar from '@/features/Navbar/Navbar'
 import { Suspense } from 'react'
 import Loading from './Loading'
-import Categories from '@/globalComponents/core/Categories'
-import SlideShow from '@/globalComponents/core/SlideShow'
+import SlideShow from '@/features/Home/SlideShow'
 import TwinkleStarBG from '@/globalComponents/core/TwinkleStarBG'
-import SideNavbar from '@/globalComponents/core/SideNavbar'
+import SideNavbar from '@/features/Navbar/SideNavbar'
 
 export default function Page() {
   return (

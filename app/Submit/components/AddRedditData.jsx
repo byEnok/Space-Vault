@@ -1,6 +1,6 @@
 'use client'
 
-import { handleSubmission } from '@/features/NewData/server/db/DataToN8N'
+import { handleSubmission } from '@/features/db/DataToN8N'
 
 function Search() {
   return (

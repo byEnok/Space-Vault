@@ -7,7 +7,7 @@ import './css/TwinkleStarsBG.css'
 
 import { ThemeProvider } from '@/globalComponents/services/Theme-Provider'
 import { RobotoFont, Lobster } from './fonts/fonts'
-import Tanstack from '@/features/NewData/components/Tanstack'
+import Tanstack from '@/features/Tanstack'
 
 export const metadata = {
   title: 'Cosmo Collection',

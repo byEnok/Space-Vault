@@ -59,6 +59,7 @@ function LandingPageImages() {
   // This calls a function that calls the 'images/route.js' endpoint, which calls the 'GetAllImages' function in '/features/NewData/server/db/db.js'
   const { data, isPending, isError } = useQuery({
     queryKey: ['posts', category],
+    // queryFn: fetchImages(category),
     queryFn: () => fetchImages(category),
   })
   useEffect(() => {
@@ -82,7 +83,7 @@ function LandingPageImages() {
             <Link
               href={`?${new URLSearchParams({ category: category.name }).toString()}#show-cards`}
               key={category.name}
-              className='flex flex-col border border-transparent text-sm text-center md:text-2xl font-bold text-title rounded-md transition-colors duration-500 ease-in-out hover:text-hover hover:border-hover hover:shadow-customSublteDark'
+              className='flex flex-col border border-transparent text-sm text-center md:text-2xl font-bold text-title rounded-md transition-all duration-500 ease-in-out hover:text-hover hover:border-hover hover:shadow-customSubtleDark'
             >
               <div className='relative w-20 h-20 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48 2xl:w-52 2xl:h-52 '>
                 <Image
@@ -106,7 +107,7 @@ function LandingPageImages() {
             </Link>
           </>
         ))}
-        {/* RESET FILTERING FROM CLICKING A CATEGORY */}
+        {/* RESET FILTERING AFTER CLICKING A CATEGORY */}
         {category && (
           <Link className='absolute text-xs -bottom-8 bg-gray-900 font-bold  p-1 border border-border rounded-md hover:shadow-custom2' href={'/#show-cards'}>
             Reset Search
@@ -134,9 +135,7 @@ function LandingPageImages() {
               {/* <div className='bg-gray-900 rounded-lg p-2 space-y-2'> */}
               <div className='bg-backgroundDarker rounded-lg p-2 space-y-2'>
                 {/* TITLE */}
-                {/* {post.title.map((specialTag, index) => ( */}
                 <span className='text-3xl text-center font-bold text-white'>{post.title}</span>
-                {/* ))} */}
                 {/* DESCRIPTION */}
                 <Accordion type='single' collapsible className='w-full'>
                   <AccordionItem value='item-1' className='flex flex-col text-wrap '>
