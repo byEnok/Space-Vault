@@ -78,7 +78,7 @@ function LandingPageImages() {
     <main className={cn('space-y-12 w-full')}>
       <div className='relative flex flex-wrap w-full justify-evenly gap-5 md:gap-0'>
         {/* ------------------------ IMAGE CATEGORIES USERS CAN CHOOSE FROM ------------------------ */}
-        {allCategories.map((category) => (
+        {allCategories.map((category, index) => (
           <>
             <Link
               href={`?${new URLSearchParams({ category: category.name }).toString()}#show-cards`}
@@ -103,7 +103,14 @@ function LandingPageImages() {
                 />
               </div>
               {/* <Link className=' rounded-md border p-2 border-border text-2xl font-bold' href={`?${new URLSearchParams({ path: '/', query: category })}`} */}
-              <p className='bg-backgroundDarker rounded-b-md text-xs text-center py-[1px] md:text-sm'>{category.name}</p>
+              {/* <p className='bg-backgroundDarker rounded-b-md text-xs text-center py-[1px] md:text-sm'>{category.name}</p> */}
+              {/* <div className='h-fit w-full bg-green-300 '> */}
+
+              <div className='relative w-20 h-fit sm:w-36 md:w-40 lg:w-44 xl:w-48 2xl:w-52'>
+                <p className={cn('bg-gray-900 text-wrap  rounded-b-md text-xs text-center py-[1px] md:text-sm md:h-fit', {})}>{category.name} </p>
+                {/* <p className={cn('bg-red-400 text-wrap rounded-b-md text-xs text-center py-[1px] md:text-sm md:h-fit', { 'h-10 w-full': category.name.length > 12 })}>{category.name} </p> */}
+              </div>
+              {/* </div> */}
             </Link>
           </>
         ))}
@@ -117,12 +124,13 @@ function LandingPageImages() {
       {/* {isPending ? (
         <Loading />
       ) :  */}
+      {/* ---------------- DATABASE DATA ---------------- */}
       {data ? (
         <div id='show-cards' className='flex flex-wrap justify-evenly gap-8 scroll-mt-5 md:gap-0'>
           {data?.map((post) => (
             <div key={post.id} className=' flex flex-col h-fit max-w-[300px] bg-gray-900 rounded-lg '>
               <div onClick={() => setImageFullscreen(post.image_src)}>
-                <Image key={post.id} className={cn(`rounded-lg cursor-zoom-in`)} src={post.image_src ? post.image_src : Placeholder} width={300} height={300} quality={100} alt={post.title[0]} />
+                <Image key={post.id} className={cn(`rounded-lg cursor-zoom-in text-center`)} src={post.image_src ? post.image_src : Placeholder} width={300} height={300} quality={100} alt={post.title[0]} />
               </div>
               {imageFullscreen && (
                 <div className='z-50 fixed inset-0 bg-opacity-80 backdrop-blur-sm flex justify-center cursor-zoom-out aspect-auto' onClick={() => setImageFullscreen(null)}>

@@ -85,12 +85,13 @@ function SlideShow() {
                   // height={1880}
                   // layout='responsive'
                   fill={true}
-                  sizes='(min-width: 1536px) 100vw,
-                (min-width: 1280px) 50vw,
-                (min-width: 1024px) 70vw,
-                (min-width: 768px) 90vw, 
-                (min-width: 640px) 80vw,
-                80vw'
+                  sizes='
+                  (min-width: 1536px) 100vw,
+                  (min-width: 1280px) 50vw,
+                  (min-width: 1024px) 70vw,
+                  (min-width: 768px) 90vw, 
+                  (min-width: 640px) 80vw,
+                  80vw'
                   placeholder='blur'
                   alt={image.alt}
                   className='object-cover w-full rounded-md'
@@ -103,8 +104,8 @@ function SlideShow() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className='absolute top-1/2 left-2 transition-all duration-300 ease-in-out border-0 opacity-45 hover:opacity-100' />
-        <CarouselNext className='absolute top-1/2 right-2 transition-all duration-300 ease-in-out border-0 opacity-45  hover:opacity-100' />
+        <CarouselPrevious className='absolute top-1/2 left-2 transition-all duration-300 ease-in-out border-0 opacity-60 hover:opacity-100' />
+        <CarouselNext className='absolute top-1/2 right-2 transition-all duration-300 ease-in-out border-0 opacity-60  hover:opacity-100' />
       </Carousel>
       {imageFullscreen && (
         <div className='z-50 fixed inset-0 bg-opacity-80 backdrop-blur-sm flex justify-center  cursor-zoom-out aspect-auto' onClick={() => setImageFullscreen(null)}>

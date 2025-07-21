@@ -24,7 +24,7 @@ export async function GET(req) {
     return NextResponse.json(images)
   } catch (e) {
     console.error(e)
-    return NextResponse('Route couldnt fetch Images!')
+    return NextResponse('Route couldnt fetch Images! Error Message: ', e)
   }
 }
 // original functional

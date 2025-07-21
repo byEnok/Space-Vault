@@ -15,7 +15,7 @@ export default function Page() {
       <div className='flex flex-col items-center gap-12'>
         <div className='flex flex-col gap-3 pt-5 text-center'>
           <h1 className='text-5xl '>
-            The <span className=' text-5xl'>Cosmo Collection</span>
+            A <span className=' text-5xl'>Cosmo Collection</span>
           </h1>
         </div>
         {/* Slideshow Of Images */}
