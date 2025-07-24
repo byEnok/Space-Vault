@@ -13,11 +13,17 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'preview.redd.it',
-        port: '',
-        pathname: '/**',
+        hostname: 'img.enoksenn.no', // Your image optimization service
+        pathname: '/**', // Allow all paths
+      },
+      {
+        protocol: 'https',
+        hostname: 'preview.redd.it', // The external image source
+        pathname: '/**', // Allow all paths
       },
     ],
+    formats: ['image/webp'],
+    minimumCacheTTL: 60,
   },
 }
 

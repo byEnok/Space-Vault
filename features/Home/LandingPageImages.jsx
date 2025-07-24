@@ -22,6 +22,9 @@ import JupiterL from '@/app/assets/Categories/jupiterL.jpg'
 import Meteor from '@/app/assets/Categories/meteor.webp'
 import ISS from '@/app/assets/Categories/iss.jpg'
 import StarConcept from '@/app/assets/Categories/starConcept.jpg'
+
+// import myImageLoader from '@/loader'
+
 // Placeholder Image
 // import Placeholder from '@/app/assets/Placeholders/placeholder1.png'
 
@@ -171,7 +174,7 @@ function LandingPageImages() {
                         ))}
                       </div>
                       {/* Reddit Icon */}
-                      <a className='self-end ' href={post.reddit_url} target='_blank' rel='noopener noreferrer'>
+                      <a className='self-end' href={post.reddit_url} target='_blank' rel='noopener noreferrer'>
                         <Image src='/icons/reddit-square.png' width={20} height={20} alt='Reddit Icon' />
                       </a>
                     </>
