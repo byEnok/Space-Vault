@@ -18,7 +18,8 @@ export async function GET(req) {
   // console.log('QUERY URL: ', query.url)
 
   try {
-    const images = await GetAllImages({ category, tags: tags.length ? tags : undefined, title: title.length ? title : undefined })
+    // const images = await GetAllImages({ category, tags: tags.length ? tags : undefined, title: title.length ? title : undefined })
+    const images = await GetAllImages({ category })
     // const images = await GetAllImages()
     // console.log('route.js file: ', allImages)
     return NextResponse.json(images)

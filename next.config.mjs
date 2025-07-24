@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const localDev = process.env.NODE_ENV === 'development'
+
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
@@ -8,8 +11,8 @@ const nextConfig = {
     return config
   },
   images: {
-    loader: 'custom',
-    loaderFile: './loader.js',
+    loader: localDev ? 'default' : 'custom',
+    loaderFile: localDev ? undefined : './loader.js',
     remotePatterns: [
       {
         protocol: 'https',

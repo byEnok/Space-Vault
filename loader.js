@@ -8,10 +8,10 @@ export default function myImageLoader({ src, width, quality }) {
 
   // Skip imgproxy in local development
   if (localImage && localDev) return src
-  // if (localImage) return src
+  if (localImage) return src
 
   // Handle production-local paths
-  if ((src.startsWith('/') && !src.startsWith('//')) || localImage) {
+  if (src.startsWith('/') && !src.startsWith('//')) {
     return src
   }
 
