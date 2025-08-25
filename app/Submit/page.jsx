@@ -7,14 +7,14 @@ import ImageTags from '@/app/Submit/components/ImageTags'
 
 function page() {
   return (
-    <div className='relative'>
+    <div className=''>
       <TwinkleStarBG />
       <SideNavbar />
       <div className='flex '>
-        <div className='w-1/2'>
+        {/* <div className='w-1/2'>
           <Search />
-        </div>
-        <div className='w-1/2'>
+        </div> */}
+        <div className='w-full'>
           <ImageTags />
         </div>
       </div>
