@@ -13,7 +13,7 @@ import Loading from '@/app/Loading'
 import { Suspense } from 'react'
 import Link from 'next/link'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/globalComponents/radix/accordion'
-import Error from '@/app/Error'
+import Error from '@/globalComponents/core/Error'
 
 // Images
 import Pillars from '@/app/assets/Categories/pillarsOfCreation.jpg'
@@ -81,7 +81,7 @@ function LandingPageImages() {
     <main className={cn('space-y-12 w-full')}>
       <div className='relative flex flex-wrap w-full justify-evenly gap-5 md:gap-0'>
         {/* ------------------------ IMAGE CATEGORIES USERS CAN CHOOSE FROM ------------------------ */}
-        {allCategories.map((category, index) => (
+        {allCategories.map((category) => (
           <>
             <Link
               href={`?${new URLSearchParams({ category: category.name }).toString()}#show-cards`}
@@ -133,7 +133,7 @@ function LandingPageImages() {
           {data?.map((post) => (
             <div key={post.id} className=' flex flex-col h-fit max-w-[300px] bg-gray-900 rounded-lg '>
               <div onClick={() => setImageFullscreen(post.image_src)}>
-                <Image key={post.id} className={cn(`rounded-lg cursor-zoom-in text-center`)} src={post.image_src ? post.image_src : Placeholder} width={300} height={300} quality={100} alt={post.title[0]} />
+                <Image key={post.id} className={cn(`rounded-lg cursor-zoom-in text-center`)} src={post.image_src ? post.image_src : Placeholder} width={300} height={300} quality={100} alt={post.description} />
               </div>
               {imageFullscreen && (
                 <div className='z-50 fixed inset-0 bg-opacity-80 backdrop-blur-sm flex justify-center cursor-zoom-out aspect-auto' onClick={() => setImageFullscreen(null)}>

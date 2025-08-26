@@ -2,8 +2,8 @@
 
 import { Suspense, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Loading from './Loading'
-import { revalidatePath } from 'next/cache'
+import Loading from '../../app/Loading'
+// import { revalidatePath } from 'next/cache'
 
 export default function Error({ error, reset }) {
   const [isLoading, setIsLoading] = useState(false)

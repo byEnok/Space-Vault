@@ -1,15 +1,19 @@
 'use client'
-import React from 'react'
-import { useState } from 'react'
+// import React from 'react'
+import { useState, useActionState, useEffect } from 'react'
+// USE THIS AFTER UPDATING NEXT TO 15!
+// import { useActionState } from 'react'
 import { handleSubmission } from '@/features/db/DataToN8N'
 
 function ImageTags() {
-  const [currentCategory, setCurrentCategory] = useState('Celestial Bodies')
-  const [currentMainTag, setCurrentMainTag] = useState('Earth')
-  const [showExtraTagOption, setShowExtraTagOption] = useState(false)
-  const categories = ['Celestial Bodies', 'Deep Space', 'Phenomena', 'Space Missions & Tech', 'Imaginarium']
+  const initial = { ok: null, message: '', error: null, status: null, id: null }
+  const [state, formAction, isPending] = useActionState(handleSubmission, initial)
+  const [showMessage, setShowMessage] = useState(false)
 
-  // TODO - If options is === deepSpace or something else. Then the next subcategory option will show the corresponding selection.
+  const [currentCategory, setCurrentCategory] = useState('Celestial Bodies')
+  const [currentMainTag, setCurrentMainTag] = useState('Sun')
+  const [showExtraTagOption, setShowExtraTagOption] = useState(false)
+  const categories = ['Celestial Bodies', 'Deep Space', 'Phenomena', 'Space Missions & Tech', 'Imaginarium', 'Cosmos Archive']
 
   // console.log(currentMainTag)
   const tags = {
@@ -68,12 +72,24 @@ function ImageTags() {
 
   // / tags
   // const categories = [tags.celestialBodies, tags.deepSpace, tags.phenomena, tags.spaceMissions]
+  console.log(state)
+  useEffect(() => {
+    let timer
+    if (state.ok) {
+      setShowMessage(true)
+      timer = setTimeout(() => {
+        setShowMessage(false)
+      }, 10000)
+    }
+    return () => clearTimeout(timer)
+  }, [state.ok])
 
   return (
     <>
       <h1 className='text-center py-12 text-5xl text-white'>Submit Image</h1>
       {/* Use library to show option selection. First for Main tag then for subcategory. */}
-      <form action={handleSubmission} className='flex flex-col gap-4 justify-center'>
+      {/* <form action={handleSubmission} className='flex flex-col gap-4 justify-center'> */}
+      <form action={formAction} className='flex flex-col gap-4 justify-center'>
         <div className='flex flex-col items-center gap-2'>
           <label htmlFor='url ' className='text-2xl'>
             URL
@@ -106,7 +122,7 @@ function ImageTags() {
             {/* MAIN TAG */}
             <div className='flex flex-col items-center gap-2'>
               <span className='text-2xl'>Main Tag</span>
-              <select name='mainTag' id='mainTag' className='w-48 h-10 p-2 rounded-md' defaultValue='' onChange={(e) => setCurrentMainTag(e.target.value)}>
+              <select name='mainTag' id='mainTag' className='w-48 h-10 p-2 rounded-md' defaultValue='Sun' onChange={(e) => setCurrentMainTag(e.target.value)}>
                 {tags[currentCategory] &&
                   Object.entries(tags[currentCategory]).map(([groupName, tagList]) => (
                     <optgroup key={groupName} label={groupName} className='font-bold underline text-2xl'>
@@ -134,7 +150,7 @@ function ImageTags() {
                     ✖️
                   </button>
                 </div>
-                <select name='extraTag' id='extraTag' className='w-48 h-10 p-2 rounded-md' defaultValue=''>
+                <select name='extraTag' id='extraTag' className='w-48 h-10 p-2 rounded-md' defaultValue='Stars'>
                   <optgroup label={currentCategory} className='font-bold underline '>
                     {Object.keys(tags[currentCategory]).map((tag, index) => (
                       <option key={index} value={tag} className='font-extralight'>
@@ -172,8 +188,9 @@ function ImageTags() {
 
         {/* SUBMIT BUTTON */}
         <div className='flex justify-center '>
-          <button>Add Post</button>
+          <button>{isPending ? 'Working...' : 'Add Post'}</button>
         </div>
+        {showMessage && <div className='transition-all duration-300 ease-in-out absolute top-10 right-10 border border-green-400 shadow-customBrightWhite bg-background  rounded-md p-1'>Image Uploaded!</div>}
       </form>
     </>
   )

@@ -64,5 +64,5 @@
   background: transparent url('/TwinkleStarsBG/clouds.png') repeat top center;
   z-index: 2;
   opacity: 0.4;
-  animation: move-clouds-back 200s linear infinite;
+  animation: move-clouds-back 700s linear infinite;
 }
